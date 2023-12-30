@@ -1,9 +1,9 @@
 ## Usage
 
 ```bash
-   docker-compose up --build fiber-gql-gateway-dev // for develop
+   docker-compose up --build dev // for develop
    
-   docker-compose up --build fiber-gql-gateway // for prod
+   docker-compose up --build prod // for prod
 ```
 
 ## Docs:
