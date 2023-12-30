@@ -20,7 +20,8 @@ func NewServer() (*Server, error) {
 	appConfig := config.NewAppConfig(configurator)
 	gqlConfig := config.NewGQLConfig(configurator)
 	healthCheckHandler := handlers.NewHealthCheckHandler(appConfig)
-	routerRouter := router.NewRouter(healthCheckHandler)
+	graphQLHandler := handlers.NewGraphQLHandler(gqlConfig)
+	routerRouter := router.NewRouter(healthCheckHandler, graphQLHandler, gqlConfig)
 	server := NewApp(appConfig, gqlConfig, routerRouter)
 	return server, nil
 }

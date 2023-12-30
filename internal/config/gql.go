@@ -6,7 +6,10 @@ import (
 )
 
 type GQLConfig struct {
-	GraphQLEndpoints []string `env:"GRAPHQL_ENDPOINTS"`
+	Endpoint           string   `env:"GRAPHQL_ENDPOINT"`
+	PlaygroundEndpoint string   `env:"GRAPHQL_PLAYGROUND_ENDPOINT"`
+	AltairEndpoint     string   `env:"GRAPHQL_ALTAIR_ENDPOINT"`
+	GraphQLEndpoints   []string `env:"GRAPHQL_ENDPOINTS"`
 }
 
 func NewGQLConfig(c *Configurator) *GQLConfig {

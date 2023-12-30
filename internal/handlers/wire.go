@@ -4,4 +4,4 @@ import (
 	"github.com/google/wire"
 )
 
-var HandlersSet = wire.NewSet(NewHealthCheckHandler)
+var HandlersSet = wire.NewSet(NewHealthCheckHandler, NewGraphQLHandler)
