@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  # Development container. 
+  # Runs in debug mode and live-reloading on every source file update.
+  dev:
+    container_name: fiber-gql-gateway-dev
+    hostname: fiber-gql-gateway-dev
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    env_file:
+      - .env
+      - .env.local
+    volumes:
+      - .:/app
+    ports:
+      - "9053:9053"
+
+  prod:
+    container_name: fiber-gql-gateway
+    hostname: fiber-gql-gateway
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    env_file:
+      - .env
+      - .env.local
+    ports:
+      - "9053:9053"
