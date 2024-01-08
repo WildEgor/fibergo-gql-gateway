@@ -15,10 +15,8 @@ type GQLConfig struct {
 func NewGQLConfig(c *Configurator) *GQLConfig {
 	cfg := GQLConfig{}
 
-	if err := c.Load(); err == nil {
-		if err := env.Parse(&cfg); err != nil {
-			log.Printf("[GQLConfig] %+v\n", err)
-		}
+	if err := env.Parse(&cfg); err != nil {
+		log.Printf("[GQLConfig] %+v\n", err)
 	}
 
 	return &cfg
